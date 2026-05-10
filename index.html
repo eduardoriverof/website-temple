@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduardo Rivero - Temple | Análisis de Liderazgo y Sistemas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0e27;
+            --bg-secondary: #0f1438;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a8b8;
+            --accent-gold: #d4af37;
+            --accent-green: #00d97e;
+            --border-color: #1a1f3a;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 2rem;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        nav a {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+
+        nav a:hover {
+            color: var(--accent-gold);
+            border-bottom-color: var(--accent-gold);
+        }
+
+        .lang-selector {
+            display: flex;
+            gap: 1rem;
+            margin-left: 2rem;
+            border-left: 1px solid var(--border-color);
+            padding-left: 2rem;
+        }
+
+        .lang-btn {
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.4rem 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .lang-btn.active {
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
+        }
+
+        .lang-btn:hover {
+            color: var(--accent-gold);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            min-height: 70vh;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+        }
+
+        .hero-content h1 .highlight {
+            color: var(--accent-gold);
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .meta-line {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .meta-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 50%;
+        }
+
+        .meta-divider {
+            width: 40px;
+            height: 1px;
+            background: var(--accent-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .meta-tags {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .meta-tag {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .meta-tag::before {
+            content: "• ";
+            color: var(--accent-gold);
+            margin-right: 0.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 90%;
+        }
+
+        .hero-content p .accent {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'Montserrat', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+            border: 2px solid var(--accent-gold);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--accent-gold);
+            transform: translateX(4px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .btn-pills {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .pill {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.8rem;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: capitalize;
+            font-weight: 500;
+        }
+
+        .pill:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .hero-footer {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 2rem;
+        }
+
+        /* HERO IMAGE */
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .image-frame {
+            position: relative;
+            width: 100%;
+            max-width: 380px;
+            aspect-ratio: 3/4;
+            border: 2px solid var(--accent-gold);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(212, 175, 55, 0.15);
+        }
+
+        .image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .companies-badge {
+            position: absolute;
+            bottom: 20px;
+            right: -10px;
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+            padding: 1.2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+            min-width: 120px;
+        }
+
+        .companies-badge-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+
+        .companies-badge-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* SCROLL INDICATOR */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .scroll-indicator svg {
+            width: 20px;
+            height: 20px;
+            margin: 0 auto;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(10px);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 2rem 1.5rem;
+                gap: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            header {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+
+            .lang-selector {
+                margin-left: 0;
+                border-left: none;
+                padding-left: 0;
+            }
+
+            .header-container {
+                justify-content: space-between;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-content p {
+                max-width: 100%;
+            }
+
+            .image-frame {
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">Eduardo.</div>
+            <nav>
+                <a href="#inicio">Inicio</a>
+                <a href="#casos">Casos</a>
+                <a href="#libro">Libro</a>
+                <a href="#sobre">Sobre Mí</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+            <div class="lang-selector">
+                <button class="lang-btn active">ES</button>
+                <button class="lang-btn">EN</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <!-- Availability -->
+            <div class="hero-meta">
+                <div class="meta-line">
+                    <span class="meta-dot"></span>
+                    <span>Disponible para proyectos • CDMX</span>
+                </div>
+            </div>
+
+            <!-- Credentials -->
+            <div class="meta-tags">
+                <span class="meta-tag">CDMX • Ejército Mexicano (Retirado)</span>
+                <span class="meta-tag">Pan American Games 2023</span>
+                <span class="meta-tag">Cerrador Top 3</span>
+            </div>
+
+            <!-- Divider -->
+            <div class="meta-divider"></div>
+
+            <!-- Main Title -->
+            <h1>
+                Eduardo<br>
+                <span class="highlight">Rivero</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p>
+                Analista de empresas y gobiernos reales que quebraron o escalaron.
+                <span class="accent">Extraigo los patrones que otros no ven.</span>
+                Si diriges gente o dinero, esto te interesa.
+            </p>
+
+            <!-- Pills / Topics -->
+            <div class="btn-pills">
+                <span class="pill">Liderazgo</span>
+                <span class="pill">Sistemas</span>
+                <span class="pill">Crisis</span>
+                <span class="pill">Escalado</span>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="cta-buttons">
+                <button class="btn btn-primary">Sesión de Diagnóstico →</button>
+                <button class="btn btn-secondary">Explorar Casos</button>
+            </div>
+
+            <!-- Footer Info -->
+            <div class="hero-footer">
+                Respuesta en menos de 24h • CDMX / LATAM
+            </div>
+        </div>
+
+        <!-- Image Section -->
+        <div class="hero-image">
+            <div class="image-frame">
+                <img src="./profile.jpg" alt="Eduardo Rivero">
+                <div class="companies-badge">
+                    <div class="companies-badge-number">50+</div>
+                    <div class="companies-badge-label">Casos Analizados</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <p>Scroll</p>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+    </div>
+
+    <script>
+        // Language selector (placeholder functionality)
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        // CTA Button functionality
+        document.querySelector('.btn-primary').addEventListener('click', () => {
+            // Link to your webinar/booking system
+            console.log('Sesión de diagnóstico clicked');
+            // Replace with your actual booking link
+            window.location.href = 'https://calendly.com/your-link';
+        });
+
+        document.querySelector('.btn-secondary').addEventListener('click', () => {
+            // Scroll to cases section
+            console.log('Casos clicked');
+            window.location.href = '#casos';
+        });
+    </script>
+</body>
+</html>
