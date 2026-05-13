@@ -937,6 +937,149 @@
                 font-size: 0.95rem;
             }
         }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 8rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .contact-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            text-align: center;
+        }
+
+        .contact-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 4rem;
+            font-style: italic;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-card {
+            padding: 2.5rem 2rem;
+            background-color: var(--bg-secondary);
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .contact-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .contact-card.contact-primary {
+            border-color: var(--accent-gold);
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+        }
+
+        .contact-card.contact-primary:hover {
+            box-shadow: 0 16px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-cta {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 2rem;
+        }
+
+        .contact-footer p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        @media (max-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .contact-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .contact-title {
+                font-size: 1.8rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .contact-subtitle {
+                font-size: 1rem;
+                margin-bottom: 3rem;
+            }
+
+            .contact-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .contact-icon {
+                font-size: 2.5rem;
+            }
+
+            .contact-card h3 {
+                font-size: 1.15rem;
+            }
+
+            .contact-card p {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body class="lang-es">
@@ -1181,6 +1324,39 @@
             </div>
         </section>
 
+        <!-- Contact Section -->
+        <section class="contact-section" id="contacto">
+            <h2 class="contact-title"><span class="hidden-es">Conecta</span><span class="hidden-en">Connect</span></h2>
+            <p class="contact-subtitle"><span class="hidden-es">Cómo llegar a mí</span><span class="hidden-en">How to reach me</span></p>
+
+            <div class="contact-grid">
+                <a href="https://calendly.com/masterlegacy/sesion?month=2026-05" target="_blank" class="contact-card contact-primary">
+                    <div class="contact-icon">📅</div>
+                    <h3><span class="hidden-es">Sesión de Diagnóstico</span><span class="hidden-en">Diagnostic Session</span></h3>
+                    <p><span class="hidden-es">Agenda directamente. 25 minutos para entender tu situación.</span><span class="hidden-en">Schedule directly. 25 minutes to understand your situation.</span></p>
+                    <div class="contact-cta"><span class="hidden-es">Abrir Calendly →</span><span class="hidden-en">Open Calendly →</span></div>
+                </a>
+
+                <a href="https://wa.link/8eked5" target="_blank" class="contact-card">
+                    <div class="contact-icon">💬</div>
+                    <h3><span class="hidden-es">WhatsApp</span><span class="hidden-en">WhatsApp</span></h3>
+                    <p><span class="hidden-es">Para urgencias o preguntas rápidas. Respondo en menos de 24h.</span><span class="hidden-en">For urgencies or quick questions. I respond in less than 24h.</span></p>
+                    <div class="contact-cta"><span class="hidden-es">Enviar mensaje →</span><span class="hidden-en">Send message →</span></div>
+                </a>
+
+                <div class="contact-card" onclick="copyEmail()" style="cursor: pointer;">
+                    <div class="contact-icon">✉️</div>
+                    <h3><span class="hidden-es">Email</span><span class="hidden-en">Email</span></h3>
+                    <p><span class="hidden-es">Para consultas más profundas. Respondo con detalle dentro de 48h.</span><span class="hidden-en">For deeper inquiries. I respond with detail within 48h.</span></p>
+                    <div class="contact-cta" id="email-cta"><span class="hidden-es">Copiar email →</span><span class="hidden-en">Copy email →</span></div>
+                </div>
+            </div>
+
+            <div class="contact-footer">
+                <p><span class="hidden-es">Respuesta garantizada en menos de 24 horas</span><span class="hidden-en">Response guaranteed within 24 hours</span></p>
+            </div>
+        </section>
+
         <!-- Footer -->
         <footer>
             <div class="footer-content">
@@ -1240,6 +1416,20 @@
                 submitBtn.disabled = false;
             }, 3000);
         });
+
+        // Copy email function
+        function copyEmail() {
+            const email = 'eduardo@eduardoriverof.com';
+            navigator.clipboard.writeText(email).then(() => {
+                const emailCta = document.getElementById('email-cta');
+                const originalText = emailCta.innerHTML;
+                emailCta.innerHTML = '<span class="hidden-es">¡Copiado! →</span><span class="hidden-en">Copied! →</span>';
+                
+                setTimeout(() => {
+                    emailCta.innerHTML = originalText;
+                }, 2000);
+            });
+        }
     </script>
 </body>
 </html>
