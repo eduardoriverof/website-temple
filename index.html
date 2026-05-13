@@ -378,11 +378,40 @@
             color: var(--text-secondary);
         }
 
+        /* Final CTA Section */
+        .final-cta-section {
+            padding: 6rem 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .final-cta-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .final-cta-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .final-cta-button {
+            display: inline-block;
+        }
+
         /* Footer */
         footer {
             border-top: 1px solid var(--border-color);
             padding: 2rem 0;
-            margin-top: 6rem;
+            margin-top: 0;
             text-align: left;
         }
 
@@ -481,6 +510,14 @@
 
             .transformation-title {
                 font-size: 1.3rem;
+            }
+
+            .final-cta-title {
+                font-size: 2rem;
+            }
+
+            .final-cta-subtitle {
+                font-size: 1rem;
             }
         }
     </style>
@@ -583,6 +620,15 @@
                         <div class="transformation-item">Liderazgo operacional (comprobado)</div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="final-cta-section">
+            <h2 class="final-cta-title">¿Listo para transformar?</h2>
+            <p class="final-cta-subtitle">Agenda una sesión de diagnóstico. 25 minutos para entender tu situación y el camino que necesitas.</p>
+            <div class="final-cta-button">
+                <a href="https://calendly.com/masterlegacy/sesion?month=2026-05" class="btn btn-primary" target="_blank">Sesión de Diagnóstico →</a>
             </div>
         </section>
 
