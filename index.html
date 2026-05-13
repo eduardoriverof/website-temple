@@ -45,11 +45,12 @@
             padding: 0 2rem;
         }
 
-        /* Hidden content for translations */
-        .es { display: block; }
-        .en { display: none; }
-        body.en .es { display: none; }
-        body.en .en { display: block; }
+        /* Language Toggle */
+        .hidden-es { display: none; }
+        body.lang-es .hidden-es { display: inline; }
+        body.lang-es .hidden-en { display: none; }
+        body.lang-en .hidden-es { display: none; }
+        body.lang-en .hidden-en { display: inline; }
 
         /* Navigation */
         nav {
@@ -384,6 +385,35 @@
             color: var(--text-secondary);
         }
 
+        /* Final CTA Section */
+        .final-cta-section {
+            padding: 6rem 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .final-cta-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
+        .final-cta-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .final-cta-button {
+            display: inline-block;
+        }
+
         /* Book Section */
         .book-section {
             padding: 8rem 0;
@@ -437,37 +467,69 @@
             letter-spacing: 1px;
         }
 
-        .book-cta {
+        .book-form-container {
             display: inline-block;
+            width: 100%;
+            max-width: 500px;
         }
 
-        /* Final CTA Section */
-        .final-cta-section {
-            padding: 6rem 0;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
+        .book-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
-        .final-cta-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        .form-group select option {
+            background-color: var(--bg-primary);
             color: var(--text-primary);
         }
 
-        .final-cta-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.8;
+        .form-submit {
+            padding: 1rem;
+            background-color: var(--accent-gold);
+            color: var(--bg-primary);
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
         }
 
-        .final-cta-button {
-            display: inline-block;
+        .form-submit:hover {
+            background-color: #e5c158;
         }
 
         /* Footer */
@@ -601,32 +663,17 @@
         }
     </style>
 </head>
-<body>
+<body class="lang-es">
     <div class="container">
         <!-- Navigation -->
         <nav>
             <div class="logo">Eduardo.</div>
             <ul class="nav-links">
-                <li><a href="#inicio">
-                    <span class="es">INICIO</span>
-                    <span class="en">HOME</span>
-                </a></li>
-                <li><a href="#casos">
-                    <span class="es">CASOS</span>
-                    <span class="en">CASES</span>
-                </a></li>
-                <li><a href="#libro">
-                    <span class="es">LIBRO</span>
-                    <span class="en">BOOK</span>
-                </a></li>
-                <li><a href="#sobre">
-                    <span class="es">SOBRE MÍ</span>
-                    <span class="en">ABOUT</span>
-                </a></li>
-                <li><a href="#contacto">
-                    <span class="es">CONTACTO</span>
-                    <span class="en">CONTACT</span>
-                </a></li>
+                <li><a href="#inicio"><span class="hidden-es">INICIO</span><span class="hidden-en">HOME</span></a></li>
+                <li><a href="#casos"><span class="hidden-es">CASOS</span><span class="hidden-en">CASES</span></a></li>
+                <li><a href="#libro"><span class="hidden-es">LIBRO</span><span class="hidden-en">BOOK</span></a></li>
+                <li><a href="#sobre"><span class="hidden-es">SOBRE MÍ</span><span class="hidden-en">ABOUT</span></a></li>
+                <li><a href="#contacto"><span class="hidden-es">CONTACTO</span><span class="hidden-en">CONTACT</span></a></li>
             </ul>
             <div class="language-selector">
                 <button class="lang-btn active" data-lang="es">ES</button>
@@ -637,40 +684,25 @@
         <!-- Hero Section -->
         <section class="hero" id="inicio">
             <div class="hero-content">
-                <h2>
-                    <span class="es">Disponible para proyectos • MÉXICO</span>
-                    <span class="en">Available for projects • MÉXICO</span>
-                </h2>
+                <h2><span class="hidden-es">Disponible para proyectos • MÉXICO</span><span class="hidden-en">Available for projects • MÉXICO</span></h2>
                 
                 <h1>Eduardo<br><span class="highlight">Rivero</span></h1>
 
-                <p>
-                    <span class="es">Analista de negocios y gobiernos a través de liderazgo y sistemas operativos. <span class="bold">Extraigo los patrones que otros no ven.</span> Si diriges gente o negocios y quieres escalar, esto te interesa.</span>
-                    <span class="en">Business and government analyst through leadership and operational systems. <span class="bold">I extract patterns others don't see.</span> If you lead people or businesses and want to scale, this interests you.</span>
-                </p>
+                <p><span class="hidden-es">Analista de negocios y gobiernos a través de liderazgo y sistemas operativos. <span class="bold">Extraigo los patrones que otros no ven.</span> Si diriges gente o negocios y quieres escalar, esto te interesa.</span><span class="hidden-en">Business and government analyst through leadership and operational systems. <span class="bold">I extract patterns others don't see.</span> If you lead people or businesses and want to scale, this interests you.</span></p>
 
                 <div class="tags">
-                    <div class="tag"><span class="es">Liderazgo</span><span class="en">Leadership</span></div>
-                    <div class="tag"><span class="es">Sistemas</span><span class="en">Systems</span></div>
-                    <div class="tag"><span class="es">Crisis</span><span class="en">Crisis</span></div>
-                    <div class="tag"><span class="es">Escalado</span><span class="en">Scaling</span></div>
+                    <div class="tag"><span class="hidden-es">Liderazgo</span><span class="hidden-en">Leadership</span></div>
+                    <div class="tag"><span class="hidden-es">Sistemas</span><span class="hidden-en">Systems</span></div>
+                    <div class="tag"><span class="hidden-es">Crisis</span><span class="hidden-en">Crisis</span></div>
+                    <div class="tag"><span class="hidden-es">Escalado</span><span class="hidden-en">Scaling</span></div>
                 </div>
 
                 <div class="cta-buttons">
-                    <a href="https://calendly.com/masterlegacy/sesion?month=2026-05" class="btn btn-primary" target="_blank">
-                        <span class="es">Sesión de Diagnóstico →</span>
-                        <span class="en">Diagnostic Session →</span>
-                    </a>
-                    <a href="https://wa.link/8eked5" class="btn btn-secondary" target="_blank">
-                        <span class="es">Contacto</span>
-                        <span class="en">Contact</span>
-                    </a>
+                    <a href="https://calendly.com/masterlegacy/sesion?month=2026-05" class="btn btn-primary" target="_blank"><span class="hidden-es">Sesión de Diagnóstico →</span><span class="hidden-en">Diagnostic Session →</span></a>
+                    <a href="https://wa.link/8eked5" class="btn btn-secondary" target="_blank"><span class="hidden-es">Contacto</span><span class="hidden-en">Contact</span></a>
                 </div>
 
-                <p class="footer-text">
-                    <span class="es">Respuesta en menos de 24h • MÉXICO / USA / LATAM</span>
-                    <span class="en">Response in less than 24h • MÉXICO / USA / LATAM</span>
-                </p>
+                <p class="footer-text"><span class="hidden-es">Respuesta en menos de 24h • MÉXICO / USA / LATAM</span><span class="hidden-en">Response in less than 24h • MÉXICO / USA / LATAM</span></p>
             </div>
 
             <div class="hero-image">
@@ -678,10 +710,7 @@
                     <img src="photo.jpg" alt="Eduardo Rivero">
                     <div class="badge">
                         <div class="badge-number">100+</div>
-                        <div class="badge-text">
-                            <span class="es">Casos Analizados</span>
-                            <span class="en">Cases Analyzed</span>
-                        </div>
+                        <div class="badge-text"><span class="hidden-es">Casos Analizados</span><span class="hidden-en">Cases Analyzed</span></div>
                     </div>
                 </div>
             </div>
@@ -689,172 +718,122 @@
 
         <!-- Background Section -->
         <section class="background-section">
-            <h2 class="background-title">
-                <span class="es">Mi Background</span>
-                <span class="en">My Background</span>
-            </h2>
+            <h2 class="background-title"><span class="hidden-es">Mi Background</span><span class="hidden-en">My Background</span></h2>
             
             <div class="background-items">
                 <div class="background-item">
-                    <h3>
-                        <span class="es">Ex Oficial de Caballería, Ejército Mexicano</span>
-                        <span class="en">Former Cavalry Officer, Mexican Army</span>
-                    </h3>
-                    <p>
-                        <span class="es">Liderazgo en condiciones de presión extrema</span>
-                        <span class="en">Leadership under extreme pressure conditions</span>
-                    </p>
+                    <h3><span class="hidden-es">Ex Oficial de Caballería, Ejército Mexicano</span><span class="hidden-en">Former Cavalry Officer, Mexican Army</span></h3>
+                    <p><span class="hidden-es">Liderazgo en condiciones de presión extrema</span><span class="hidden-en">Leadership under extreme pressure conditions</span></p>
                 </div>
                 <div class="background-item">
                     <h3>Pan American Games 2023</h3>
-                    <p>
-                        <span class="es">Ejecución bajo estrés máximo</span>
-                        <span class="en">Execution under maximum stress</span>
-                    </p>
+                    <p><span class="hidden-es">Ejecución bajo estrés máximo</span><span class="hidden-en">Execution under maximum stress</span></p>
                 </div>
                 <div class="background-item">
-                    <h3>100+ <span class="es">Casos Analizados</span><span class="en">Cases Analyzed</span></h3>
-                    <p>
-                        <span class="es">Pattern recognition en crisis reales</span>
-                        <span class="en">Pattern recognition in real crises</span>
-                    </p>
+                    <h3>100+ <span class="hidden-es">Casos Analizados</span><span class="hidden-en">Cases Analyzed</span></h3>
+                    <p><span class="hidden-es">Pattern recognition en crisis reales</span><span class="hidden-en">Pattern recognition in real crises</span></p>
                 </div>
                 <div class="background-item">
-                    <h3>
-                        <span class="es">Metodología Impacto</span>
-                        <span class="en">Impact Methodology</span>
-                    </h3>
-                    <p>
-                        <span class="es">Sistemas operacionales que escalan</span>
-                        <span class="en">Operational systems that scale</span>
-                    </p>
+                    <h3><span class="hidden-es">Metodología Impacto</span><span class="hidden-en">Impact Methodology</span></h3>
+                    <p><span class="hidden-es">Sistemas operacionales que escalan</span><span class="hidden-en">Operational systems that scale</span></p>
                 </div>
             </div>
 
             <!-- Transformation Section -->
-            <h3 class="transformation-title">
-                <span class="es">Por eso, líderes que vienen a mí transforman:</span>
-                <span class="en">That's why, leaders who come to me transform:</span>
-            </h3>
+            <h3 class="transformation-title"><span class="hidden-es">Por eso, líderes que vienen a mí transforman:</span><span class="hidden-en">That's why, leaders who come to me transform:</span></h3>
             
             <div class="transformation-grid">
                 <div class="transformation-column before">
-                    <h4><span class="es">ANTES</span><span class="en">BEFORE</span></h4>
+                    <h4><span class="hidden-es">ANTES</span><span class="hidden-en">BEFORE</span></h4>
                     <div class="transformation-items">
-                        <div class="transformation-item">
-                            <span class="es">Equipos que se fragmentan en crisis</span>
-                            <span class="en">Teams that fragment in crisis</span>
-                        </div>
-                        <div class="transformation-item">
-                            <span class="es">Decisiones lentas e indecisas</span>
-                            <span class="en">Slow and indecisive decisions</span>
-                        </div>
-                        <div class="transformation-item">
-                            <span class="es">Cultura que no escala</span>
-                            <span class="en">Culture that doesn't scale</span>
-                        </div>
-                        <div class="transformation-item">
-                            <span class="es">Liderazgo basado en carisma (frágil)</span>
-                            <span class="en">Leadership based on charisma (fragile)</span>
-                        </div>
+                        <div class="transformation-item"><span class="hidden-es">Equipos que se fragmentan en crisis</span><span class="hidden-en">Teams that fragment in crisis</span></div>
+                        <div class="transformation-item"><span class="hidden-es">Decisiones lentas e indecisas</span><span class="hidden-en">Slow and indecisive decisions</span></div>
+                        <div class="transformation-item"><span class="hidden-es">Cultura que no escala</span><span class="hidden-en">Culture that doesn't scale</span></div>
+                        <div class="transformation-item"><span class="hidden-es">Liderazgo basado en carisma (frágil)</span><span class="hidden-en">Leadership based on charisma (fragile)</span></div>
                     </div>
                 </div>
                 <div class="transformation-column after">
-                    <h4><span class="es">DESPUÉS</span><span class="en">AFTER</span></h4>
+                    <h4><span class="hidden-es">DESPUÉS</span><span class="hidden-en">AFTER</span></h4>
                     <div class="transformation-items">
-                        <div class="transformation-item">
-                            <span class="es">Sistemas que resisten presión extrema</span>
-                            <span class="en">Systems that resist extreme pressure</span>
-                        </div>
-                        <div class="transformation-item">
-                            <span class="es">Decisión rápida con 100% convicción</span>
-                            <span class="en">Quick decisions with 100% conviction</span>
-                        </div>
-                        <div class="transformation-item">
-                            <span class="es">Cultura replicable y duradero</span>
-                            <span class="en">Replicable and lasting culture</span>
-                        </div>
-                        <div class="transformation-item">
-                            <span class="es">Liderazgo operacional (comprobado)</span>
-                            <span class="en">Operational leadership (proven)</span>
-                        </div>
+                        <div class="transformation-item"><span class="hidden-es">Sistemas que resisten presión extrema</span><span class="hidden-en">Systems that resist extreme pressure</span></div>
+                        <div class="transformation-item"><span class="hidden-es">Decisión rápida con 100% convicción</span><span class="hidden-en">Quick decisions with 100% conviction</span></div>
+                        <div class="transformation-item"><span class="hidden-es">Cultura replicable y duradero</span><span class="hidden-en">Replicable and lasting culture</span></div>
+                        <div class="transformation-item"><span class="hidden-es">Liderazgo operacional (comprobado)</span><span class="hidden-en">Operational leadership (proven)</span></div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="final-cta-section">
+            <h2 class="final-cta-title"><span class="hidden-es">¿Listo para transformar?</span><span class="hidden-en">Ready to transform?</span></h2>
+            <p class="final-cta-subtitle"><span class="hidden-es">Agenda una sesión de diagnóstico. 25 minutos para entender tu situación y el camino que necesitas.</span><span class="hidden-en">Schedule a diagnostic session. 25 minutes to understand your situation and the path you need.</span></p>
+            <div class="final-cta-button">
+                <a href="https://calendly.com/masterlegacy/sesion?month=2026-05" class="btn btn-primary" target="_blank"><span class="hidden-es">Sesión de Diagnóstico →</span><span class="hidden-en">Diagnostic Session →</span></a>
             </div>
         </section>
 
         <!-- Book Section -->
         <section class="book-section" id="libro">
             <h2 class="book-title">MAKE IT HAPPEN</h2>
-            <p class="book-subtitle">
-                <span class="es">El libro que cambia cómo los líderes toman decisiones bajo presión.</span>
-                <span class="en">The book that changes how leaders make decisions under pressure.</span>
-            </p>
+            <p class="book-subtitle"><span class="hidden-es">El libro que cambia cómo los líderes toman decisiones bajo presión.</span><span class="hidden-en">The book that changes how leaders make decisions under pressure.</span></p>
 
             <div class="book-content">
-                <p>
-                    <span class="es">Durante años he observado un patrón:
-                    Los líderes que escalan no tienen más talento. Tienen sistemas.
-                    No tienen más suerte. Tienen procesos.
-                    No tienen más carisma. Tienen claridad.</span>
-                    <span class="en">For years I have observed a pattern:
-                    Leaders who scale don't have more talent. They have systems.
-                    They don't have more luck. They have processes.
-                    They don't have more charisma. They have clarity.</span>
-                </p>
+                <p><span class="hidden-es">Durante años he observado un patrón:
+                Los líderes que escalan no tienen más talento. Tienen sistemas.
+                No tienen más suerte. Tienen procesos.
+                No tienen más carisma. Tienen claridad.</span><span class="hidden-en">For years I have observed a pattern:
+                Leaders who scale don't have more talent. They have systems.
+                They don't have more luck. They have processes.
+                They don't have more charisma. They have clarity.</span></p>
 
-                <p>
-                    <span class="es">Este libro revela cómo construí la Metodología Impacto
-                    —basada en mi experiencia como oficial militar,
-                    competidor de élite, y análisis de lo que funciona
-                    en los negocios y gobiernos que logran lo imposible.</span>
-                    <span class="en">This book reveals how I built the Impact Methodology
-                    —based on my experience as a military officer,
-                    elite competitor, and analysis of what works
-                    in businesses and governments that achieve the impossible.</span>
-                </p>
+                <p><span class="hidden-es">Este libro revela cómo construí la Metodología Impacto
+                —basada en mi experiencia como oficial militar,
+                competidor de élite, y análisis de lo que funciona
+                en los negocios y gobiernos que logran lo imposible.</span><span class="hidden-en">This book reveals how I built the Impact Methodology
+                —based on my experience as a military officer,
+                elite competitor, and analysis of what works
+                in businesses and governments that achieve the impossible.</span></p>
 
-                <p>
-                    <span class="es">Historias reales. Crisis verdaderas. Soluciones comprobadas.</span>
-                    <span class="en">Real stories. Real crises. Proven solutions.</span>
-                </p>
+                <p><span class="hidden-es">Historias reales. Crisis verdaderas. Soluciones comprobadas.</span><span class="hidden-en">Real stories. Real crises. Proven solutions.</span></p>
             </div>
 
-            <p class="book-launch">
-                <span class="es">Lanzamiento: 28 de Agosto 2026</span>
-                <span class="en">Launch: August 28, 2026</span>
-            </p>
+            <p class="book-launch"><span class="hidden-es">Lanzamiento: 28 de Agosto 2026</span><span class="hidden-en">Launch: August 28, 2026</span></p>
 
-            <p class="book-question">
-                <span class="es">¿Qué harías diferente si supieras exactamente cómo toman
-                decisiones los líderes que logran lo imposible?</span>
-                <span class="en">What would you do differently if you knew exactly how
-                leaders who achieve the impossible make decisions?</span>
-            </p>
+            <p class="book-question"><span class="hidden-es">¿Qué harías diferente si supieras exactamente cómo toman
+            decisiones los líderes que logran lo imposible?</span><span class="hidden-en">What would you do differently if you knew exactly how
+            leaders who achieve the impossible make decisions?</span></p>
 
-            <div class="book-cta">
-                <a href="https://calendly.com/masterlegacy/sesion?month=2026-05" class="btn btn-primary" target="_blank">
-                    <span class="es">Notificarme cuando esté disponible</span>
-                    <span class="en">Notify me when available</span>
-                </a>
-            </div>
-        </section>
+            <div class="book-form-container">
+                <form class="book-form" id="bookNotificationForm">
+                    <div class="form-group">
+                        <label for="name"><span class="hidden-es">Nombre</span><span class="hidden-en">Name</span></label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
 
-        <!-- Final CTA Section -->
-        <section class="final-cta-section">
-            <h2 class="final-cta-title">
-                <span class="es">¿Listo para transformar?</span>
-                <span class="en">Ready to transform?</span>
-            </h2>
-            <p class="final-cta-subtitle">
-                <span class="es">Agenda una sesión de diagnóstico. 25 minutos para entender tu situación y el camino que necesitas.</span>
-                <span class="en">Schedule a diagnostic session. 25 minutes to understand your situation and the path you need.</span>
-            </p>
-            <div class="final-cta-button">
-                <a href="https://calendly.com/masterlegacy/sesion?month=2026-05" class="btn btn-primary" target="_blank">
-                    <span class="es">Sesión de Diagnóstico →</span>
-                    <span class="en">Diagnostic Session →</span>
-                </a>
+                    <div class="form-group">
+                        <label for="email"><span class="hidden-es">Email</span><span class="hidden-en">Email</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="country"><span class="hidden-es">País</span><span class="hidden-en">Country</span></label>
+                        <select id="country" name="country" required>
+                            <option value="">-- <span class="hidden-es">Selecciona</span><span class="hidden-en">Select</span> --</option>
+                            <option value="México">México</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Chile">Chile</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Perú">Perú</option>
+                            <option value="Brasil">Brasil</option>
+                            <option value="España">España</option>
+                            <option value="USA">USA</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="form-submit"><span class="hidden-es">Notificarme cuando esté disponible</span><span class="hidden-en">Notify me when available</span></button>
+                </form>
             </div>
         </section>
 
@@ -863,16 +842,10 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <strong>MÉXICO</strong>
-                    <span class="es">Ejército Mexicano (Reservista)<br>
-                    Pan American Games 2023</span>
-                    <span class="en">Mexican Army (Reserve)<br>
-                    Pan American Games 2023</span>
+                    <span class="hidden-es">Ejército Mexicano (Reservista)<br>Pan American Games 2023</span><span class="hidden-en">Mexican Army (Reserve)<br>Pan American Games 2023</span>
                 </div>
                 <div class="footer-section">
-                    <strong>
-                        <span class="es">Respuesta en menos de 24h</span>
-                        <span class="en">Response in less than 24h</span>
-                    </strong>
+                    <strong><span class="hidden-es">Respuesta en menos de 24h</span><span class="hidden-en">Response in less than 24h</span></strong>
                     MÉXICO / USA / LATAM
                 </div>
             </div>
@@ -895,11 +868,40 @@
                 
                 // Change language
                 if (lang === 'en') {
-                    document.body.classList.add('en');
+                    document.body.classList.remove('lang-es');
+                    document.body.classList.add('lang-en');
                 } else {
-                    document.body.classList.remove('en');
+                    document.body.classList.remove('lang-en');
+                    document.body.classList.add('lang-es');
                 }
             });
+        });
+
+        // Book notification form
+        document.getElementById('bookNotificationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const country = document.getElementById('country').value;
+            
+            // Store data (you can send to a service here)
+            console.log('Notification received:', { name, email, country });
+            
+            // Show success message
+            const form = this;
+            const submitBtn = form.querySelector('.form-submit');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<span class="hidden-es">¡Gracias! Te notificaremos</span><span class="hidden-en">Thanks! We\'ll notify you</span>';
+            submitBtn.disabled = true;
+            
+            // Reset after 3 seconds
+            setTimeout(() => {
+                form.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 3000);
         });
     </script>
 </body>
