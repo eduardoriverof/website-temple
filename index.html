@@ -615,7 +615,166 @@
             font-size: 1.15rem;
         }
 
-        /* Footer */
+        /* Diagnósticos Section */
+        .diagnosticos-section {
+            padding: 8rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .diagnosticos-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            text-align: center;
+        }
+
+        .diagnosticos-intro {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            line-height: 1.9;
+        }
+
+        .diagnosticos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .diagnostico-card {
+            padding: 2.5rem 2rem;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .diagnostico-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(212, 175, 55, 0.15);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .diagnostico-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-subtitle {
+            font-size: 0.95rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            font-style: italic;
+        }
+
+        .card-text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .diagnosticos-cta {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        .diagnosticos-cta h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .diagnosticos-cta p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .diagnosticos-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .diagnosticos-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .diagnosticos-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .diagnosticos-title {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .diagnosticos-intro {
+                font-size: 1rem;
+                margin-bottom: 3rem;
+            }
+
+            .diagnostico-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .card-icon {
+                font-size: 2rem;
+            }
+
+            .diagnostico-card h3 {
+                font-size: 1.15rem;
+            }
+
+            .diagnosticos-cta h3 {
+                font-size: 1.5rem;
+            }
+
+            .diagnosticos-cta p {
+                font-size: 0.95rem;
+            }
+        }
+
+        
         footer {
             border-top: 1px solid var(--border-color);
             padding: 2rem 0;
@@ -787,7 +946,7 @@
             <div class="logo">Eduardo.</div>
             <ul class="nav-links">
                 <li><a href="#inicio"><span class="hidden-es">INICIO</span><span class="hidden-en">HOME</span></a></li>
-                <li><a href="#casos"><span class="hidden-es">CASOS</span><span class="hidden-en">CASES</span></a></li>
+                <li><a href="#diagnosticos"><span class="hidden-es">DIAGNÓSTICOS</span><span class="hidden-en">DIAGNOSTICS</span></a></li>
                 <li><a href="#libro"><span class="hidden-es">LIBRO</span><span class="hidden-en">BOOK</span></a></li>
                 <li><a href="#sobre"><span class="hidden-es">SOBRE MÍ</span><span class="hidden-en">ABOUT</span></a></li>
                 <li><a href="#contacto"><span class="hidden-es">CONTACTO</span><span class="hidden-en">CONTACT</span></a></li>
@@ -886,6 +1045,44 @@
             <h2 class="final-cta-title"><span class="hidden-es">¿Listo para transformar?</span><span class="hidden-en">Ready to transform?</span></h2>
             <p class="final-cta-subtitle"><span class="hidden-es">Agenda una sesión de diagnóstico. 25 minutos para entender tu situación y el camino que necesitas.</span><span class="hidden-en">Schedule a diagnostic session. 25 minutes to understand your situation and the path you need.</span></p>
             <div class="final-cta-button">
+                <a href="https://calendly.com/masterlegacy/sesion?month=2026-05" class="btn btn-primary" target="_blank"><span class="hidden-es">Sesión de Diagnóstico →</span><span class="hidden-en">Diagnostic Session →</span></a>
+            </div>
+        </section>
+
+        <!-- Diagnósticos Section -->
+        <section class="diagnosticos-section" id="diagnosticos">
+            <h2 class="diagnosticos-title"><span class="hidden-es">Diagnósticos</span><span class="hidden-en">Diagnostics</span></h2>
+            <p class="diagnosticos-intro"><span class="hidden-es">He ayudado a 100+ líderes a identificar sus cuellos de botella. Esos diagnósticos me permitieron mapear los patrones más grandes que paralizan empresas y gobiernos en México, USA y Latam.</span><span class="hidden-en">I've helped 100+ leaders identify their bottlenecks. Those diagnostics allowed me to map the largest patterns that paralyze companies and governments in Mexico, USA and Latin America.</span></p>
+
+            <div class="diagnosticos-grid">
+                <div class="diagnostico-card">
+                    <div class="card-icon">🔗</div>
+                    <h3><span class="hidden-es">La Fragmentación</span><span class="hidden-en">Fragmentation</span></h3>
+                    <p class="card-subtitle"><span class="hidden-es">Equipos que se rompen bajo presión</span><span class="hidden-en">Teams that break under pressure</span></p>
+                    <p class="card-text"><span class="hidden-es">Cuando la crisis llega, los sistemas débiles colapsan. Los equipos se fragmentan. La comunicación falla. Descubrí que esto es el patrón #1 en startups, pymes y corporativos que fallan.</span><span class="hidden-en">When crisis hits, weak systems collapse. Teams fragment. Communication fails. I discovered this is pattern #1 in startups, SMEs, and corporations that fail.</span></p>
+                    <p class="card-meta"><span class="hidden-es">Identificado en: Startups, Pymes, Corporativos</span><span class="hidden-en">Found in: Startups, SMEs, Corporates</span></p>
+                </div>
+
+                <div class="diagnostico-card">
+                    <div class="card-icon">⏸️</div>
+                    <h3><span class="hidden-es">La Parálisis Decisiva</span><span class="hidden-en">Decisional Paralysis</span></h3>
+                    <p class="card-subtitle"><span class="hidden-es">Líderes que no pueden decidir</span><span class="hidden-en">Leaders who cannot decide</span></p>
+                    <p class="card-text"><span class="hidden-es">Demasiada información. Falta de claridad. Miedo al error. Los líderes se quedan atrapados en análisis infinito. Nada se mueve. Vi esto destruir gobiernos, instituciones, y empresas en crisis. Es la parálisis que mata.</span><span class="hidden-en">Too much information. Lack of clarity. Fear of error. Leaders get trapped in endless analysis. Nothing moves. I saw this destroy governments, institutions, and companies in crisis. It's the paralysis that kills.</span></p>
+                    <p class="card-meta"><span class="hidden-es">Identificado en: Gobiernos, Instituciones, Empresas en crisis</span><span class="hidden-en">Found in: Governments, Institutions, Companies in crisis</span></p>
+                </div>
+
+                <div class="diagnostico-card">
+                    <div class="card-icon">🏗️</div>
+                    <h3><span class="hidden-es">Falta de Carácter Operacional</span><span class="hidden-en">Lack of Operational Character</span></h3>
+                    <p class="card-subtitle"><span class="hidden-es">Sistemas sin estructura clara</span><span class="hidden-en">Systems without clear structure</span></p>
+                    <p class="card-text"><span class="hidden-es">No hay proceso. No hay claridad. Todo depende de una persona. Cuando esa persona falta, todo colapsa. Vi organizaciones en escalada que tenían talento pero no tenían arquitectura. Tenían carisma pero no carácter.</span><span class="hidden-en">No process. No clarity. Everything depends on one person. When that person is gone, everything collapses. I saw scaling organizations with talent but no architecture. They had charisma but no character.</span></p>
+                    <p class="card-meta"><span class="hidden-es">Identificado en: Organizaciones en escalada</span><span class="hidden-en">Found in: Scaling organizations</span></p>
+                </div>
+            </div>
+
+            <div class="diagnosticos-cta">
+                <h3><span class="hidden-es">¿Cuál de estos patrones te frena?</span><span class="hidden-en">Which of these patterns is holding you back?</span></h3>
+                <p><span class="hidden-es">Agenda una sesión de diagnóstico. 25 minutos para identificar cuál es tu patrón y cómo desarmarlo.</span><span class="hidden-en">Schedule a diagnostic session. 25 minutes to identify your pattern and how to dismantle it.</span></p>
                 <a href="https://calendly.com/masterlegacy/sesion?month=2026-05" class="btn btn-primary" target="_blank"><span class="hidden-es">Sesión de Diagnóstico →</span><span class="hidden-en">Diagnostic Session →</span></a>
             </div>
         </section>
