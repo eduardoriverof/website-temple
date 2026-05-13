@@ -542,40 +542,92 @@
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             color: var(--text-primary);
+            text-align: center;
         }
 
-        .about-intro {
-            font-size: 1.3rem;
+        .about-timeline {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            padding: 0 2rem;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+            align-items: flex-start;
+        }
+
+        .timeline-item:nth-child(even) {
+            grid-template-columns: 1fr 200px;
+            direction: rtl;
+        }
+
+        .timeline-item:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .timeline-label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             color: var(--accent-gold);
-            font-weight: 600;
-            margin-bottom: 3rem;
+            padding-top: 0.5rem;
+        }
+
+        .timeline-content {
+            padding: 2rem;
+            background-color: var(--bg-secondary);
+            border-left: 2px solid var(--accent-gold);
+            border-radius: 6px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            border-left: none;
+            border-right: 2px solid var(--accent-gold);
+        }
+
+        .timeline-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
             line-height: 1.8;
         }
 
-        .about-content {
+        .about-conclusion {
             max-width: 900px;
-            margin: 0 auto;
-            font-size: 1.05rem;
+            margin: 4rem auto 0;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .about-conclusion p {
+            font-size: 1.1rem;
             color: var(--text-secondary);
-            line-height: 2;
-        }
-
-        .about-section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent-gold);
-            margin-top: 3rem;
+            line-height: 1.9;
             margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        .about-section-content {
-            margin-bottom: 3rem;
-            line-height: 2;
+        .about-conclusion p:last-child {
+            margin-bottom: 0;
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 1.15rem;
         }
 
         /* Footer */
@@ -636,6 +688,15 @@
 
             .about-title {
                 font-size: 2rem;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .timeline-item:nth-child(even) {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -715,8 +776,24 @@
                 font-size: 1.8rem;
             }
 
-            .about-content {
-                font-size: 1rem;
+            .timeline-item {
+                padding: 0 1rem;
+            }
+
+            .about-timeline {
+                padding: 0;
+            }
+
+            .timeline-label {
+                font-size: 0.8rem;
+            }
+
+            .timeline-content {
+                padding: 1.5rem;
+            }
+
+            .timeline-content h3 {
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -837,30 +914,16 @@
             <p class="book-subtitle"><span class="hidden-es">El libro que cambia cómo los líderes toman decisiones bajo presión.</span><span class="hidden-en">The book that changes how leaders make decisions under pressure.</span></p>
 
             <div class="book-content">
-                <p><span class="hidden-es">Durante años he observado un patrón:
-                Los líderes que escalan no tienen más talento. Tienen sistemas.
-                No tienen más suerte. Tienen procesos.
-                No tienen más carisma. Tienen claridad.</span><span class="hidden-en">For years I have observed a pattern:
-                Leaders who scale don't have more talent. They have systems.
-                They don't have more luck. They have processes.
-                They don't have more charisma. They have clarity.</span></p>
+                <p><span class="hidden-es">Durante años he observado un patrón: Los líderes que escalan no tienen más talento. Tienen sistemas. No tienen más suerte. Tienen procesos. No tienen más carisma. Tienen claridad.</span><span class="hidden-en">For years I have observed a pattern: Leaders who scale don't have more talent. They have systems. They don't have more luck. They have processes. They don't have more charisma. They have clarity.</span></p>
 
-                <p><span class="hidden-es">Este libro revela cómo construí la Metodología Impacto
-                —basada en mi experiencia como oficial militar,
-                competidor de élite, y análisis de lo que funciona
-                en los negocios y gobiernos que logran lo imposible.</span><span class="hidden-en">This book reveals how I built the Impact Methodology
-                —based on my experience as a military officer,
-                elite competitor, and analysis of what works
-                in businesses and governments that achieve the impossible.</span></p>
+                <p><span class="hidden-es">Este libro revela cómo construí la Metodología Impacto —basada en mi experiencia como oficial militar, competidor de élite, y análisis de lo que funciona en los negocios y gobiernos que logran lo imposible.</span><span class="hidden-en">This book reveals how I built the Impact Methodology —based on my experience as a military officer, elite competitor, and analysis of what works in businesses and governments that achieve the impossible.</span></p>
 
                 <p><span class="hidden-es">Historias reales. Crisis verdaderas. Soluciones comprobadas.</span><span class="hidden-en">Real stories. Real crises. Proven solutions.</span></p>
             </div>
 
             <p class="book-launch"><span class="hidden-es">Lanzamiento: 28 de Agosto 2026</span><span class="hidden-en">Launch: August 28, 2026</span></p>
 
-            <p class="book-question"><span class="hidden-es">¿Qué harías diferente si supieras exactamente cómo toman
-            decisiones los líderes que logran lo imposible?</span><span class="hidden-en">What would you do differently if you knew exactly how
-            leaders who achieve the impossible make decisions?</span></p>
+            <p class="book-question"><span class="hidden-es">¿Qué harías diferente si supieras exactamente cómo toman decisiones los líderes que logran lo imposible?</span><span class="hidden-en">What would you do differently if you knew exactly how leaders who achieve the impossible make decisions?</span></p>
 
             <div class="book-form-container">
                 <form class="book-form" id="bookNotificationForm">
@@ -899,72 +962,43 @@
         <section class="about-section" id="sobre">
             <h2 class="about-title"><span class="hidden-es">Sobre Mí</span><span class="hidden-en">About Me</span></h2>
 
-            <div class="about-content">
-                <p class="about-intro"><span class="hidden-es">Oficial de Caballería. Competidor de élite. Constructor de sistemas.</span><span class="hidden-en">Cavalry Officer. Elite Competitor. Systems Builder.</span></p>
-
-                <div class="about-section-content">
-                    <p class="about-section-title"><span class="hidden-es">Mi Carrera No Fue Lineal. Fue Una Serie De Decisiones Forzadas Por La Realidad.</span><span class="hidden-en">My Career Was Not Linear. It Was A Series Of Decisions Forced By Reality.</span></p>
+            <div class="about-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-label"><span class="hidden-es">Colegio Militar</span><span class="hidden-en">Military College</span></div>
+                    <div class="timeline-content">
+                        <h3><span class="hidden-es">Formación de élite donde aprendí que los errores cuestan vidas</span><span class="hidden-en">Elite training where I learned errors cost lives</span></h3>
+                        <p><span class="hidden-es">La transición de la vida civil a la militar no es un cambio. Es una muerte y un renacimiento. En el Heroico Colegio Militar descubrí que el liderazgo no es inspiración. Es claridad bajo presión.</span><span class="hidden-en">The transition from civilian to military life is not a change. It's a death and a rebirth. At the Heroic Military College I discovered leadership is not inspiration. It's clarity under pressure.</span></p>
+                    </div>
                 </div>
 
-                <div class="about-section-content">
-                    <p class="about-section-title"><span class="hidden-es">Aprendí En El Ejército Que Los Sistemas Vencen Al Carisma</span><span class="hidden-en">I Learned In The Army That Systems Beat Charisma</span></p>
-                    <p><span class="hidden-es">Heroico Colegio Militar. Formación militar de élite.
-                    Recién graduado como Oficial de Caballería, entré a una realidad sin filtros.
-                    Durante 8 años viví donde los errores no cuestan dinero. Cuestan vidas.</span><span class="hidden-en">Heroic Military College. Elite military training.
-                    Freshly graduated as a Cavalry Officer, I entered a reality without filters.
-                    For 8 years I lived where mistakes don't cost money. They cost lives.</span></p>
-
-                    <p><span class="hidden-es">Operaciones de alto impacto. Adiestramientos con fuerzas especiales.
-                    Presión donde no hay margen de error.
-                    Bajo esa realidad brutal, descubrí que no estaba aprendiendo liderazgo.
-                    Estaba aprendiendo a decidir cuando cada decisión tiene peso real.</span><span class="hidden-en">High-impact operations. Training with special forces.
-                    Pressure where there is no margin for error.
-                    Under that brutal reality, I discovered I wasn't learning leadership.
-                    I was learning to decide when every decision has real weight.</span></p>
-
-                    <p><span class="hidden-es">Y descubrí que el liderazgo no es inspiración. Es claridad operacional.
-                    Y la claridad operacional es un sistema.</span><span class="hidden-en">And I discovered that leadership is not inspiration. It's operational clarity.
-                    And operational clarity is a system.</span></p>
+                <div class="timeline-item">
+                    <div class="timeline-label"><span class="hidden-es">8 Años Oficial</span><span class="hidden-en">8 Years Officer</span></div>
+                    <div class="timeline-content">
+                        <h3><span class="hidden-es">Recién graduado entré a una realidad sin filtros</span><span class="hidden-en">Freshly graduated, I entered unfiltered reality</span></h3>
+                        <p><span class="hidden-es">Operaciones de alto impacto. Adiestramientos con fuerzas especiales. Presión donde no hay margen de error. Bajo esa realidad brutal descubrí que no estaba aprendiendo liderazgo. Estaba aprendiendo a decidir cuando cada decisión tiene peso real. El liderazgo es un sistema.</span><span class="hidden-en">High-impact operations. Special forces training. Pressure with no margin for error. Under that brutal reality I discovered I wasn't learning leadership. I was learning to decide when every decision carries real weight. Leadership is a system.</span></p>
+                    </div>
                 </div>
 
-                <div class="about-section-content">
-                    <p class="about-section-title"><span class="hidden-es">Descubrí En La Élite Que La Consistencia Vence La Suerte</span><span class="hidden-en">I Discovered In The Elite That Consistency Beats Luck</span></p>
-                    <p><span class="hidden-es">Representante de México en Pan American Games 2023.
-                    Competencia internacional. Estrés máximo. Sin red de contención.
-                    Ahí entendí que el talento es commoditie. La ejecución bajo presión es arte.</span><span class="hidden-en">Representative of Mexico at Pan American Games 2023.
-                    International competition. Maximum stress. No safety net.
-                    There I understood that talent is a commodity. Execution under pressure is an art.</span></p>
+                <div class="timeline-item">
+                    <div class="timeline-label"><span class="hidden-es">Pan American 2023</span><span class="hidden-en">Pan American 2023</span></div>
+                    <div class="timeline-content">
+                        <h3><span class="hidden-es">Competencia internacional. Estrés máximo. Sin red.</span><span class="hidden-en">International competition. Maximum stress. No net.</span></h3>
+                        <p><span class="hidden-es">Ahí descubrí que el talento es commoditie. Todos en esa cancha tenían habilidad. Lo que separaba ganadores de otros era la ejecución bajo presión. El arte de hacer lo correcto cuando todo te pide que falles.</span><span class="hidden-en">There I discovered talent is a commodity. Everyone on that field had ability. What separated winners was execution under pressure. The art of doing right when everything tempts failure.</span></p>
+                    </div>
                 </div>
 
-                <div class="about-section-content">
-                    <p class="about-section-title"><span class="hidden-es">Pero La Crisis Verdadera Fue Otra</span><span class="hidden-en">But The Real Crisis Was Different</span></p>
-                    <p><span class="hidden-es">Ver instituciones mexicanas colapsar desde adentro.
-                    Ver empresas que tenían todo fallar porque sus líderes no tenían sistemas.
-                    Ver gobiernos que no podían tomar decisiones porque nadie entiende cómo funcionan.
-                    Eso fue el quiebre.</span><span class="hidden-en">Watching Mexican institutions collapse from within.
-                    Watching companies that had everything fail because their leaders had no systems.
-                    Watching governments unable to make decisions because no one understands how they work.
-                    That was the breaking point.</span></p>
+                <div class="timeline-item">
+                    <div class="timeline-label"><span class="hidden-es">La Crisis</span><span class="hidden-en">The Crisis</span></div>
+                    <div class="timeline-content">
+                        <h3><span class="hidden-es">Ver instituciones colapsar desde adentro</span><span class="hidden-en">Watching institutions collapse from within</span></h3>
+                        <p><span class="hidden-es">Ver empresas que tenían todo fallar porque sus líderes no tenían sistemas. Ver gobiernos paralizados no por falta de recursos, sino por falta de carácter en sus líderes. Eso fue el quiebre. Entendí que mi experiencia en la presión no era mía. Era un instrumento que podía transferir.</span><span class="hidden-en">Watching companies with everything fail because leaders had no systems. Watching governments paralyzed not by lack of resources, but by lack of character in their leaders. That was the breaking point. I understood my pressure experience wasn't mine alone. It was an instrument I could transfer.</span></p>
+                    </div>
                 </div>
+            </div>
 
-                <div class="about-section-content">
-                    <p class="about-section-title"><span class="hidden-es">Por Eso Ahora Construyo</span><span class="hidden-en">That's Why I Build Now</span></p>
-                    <p><span class="hidden-es">No para ser coach. Para ser arquitecto.
-                    No para motivar. Para estructurar.
-                    Mi misión es simple: transferir lo que aprendí donde los errores cuestan vidas
-                    a líderes que necesitan escalar sin colapsar.</span><span class="hidden-en">Not to be a coach. To be an architect.
-                    Not to motivate. To structure.
-                    My mission is simple: transfer what I learned where mistakes cost lives
-                    to leaders who need to scale without collapsing.</span></p>
-
-                    <p><span class="hidden-es">Y la meta es más grande: demostrar que México puede transformarse
-                    desde la iniciativa privada. Que podemos construir sistemas tan brutales
-                    que obliguen a las instituciones a cambiar.</span><span class="hidden-en">And the goal is bigger: to prove that Mexico can transform
-                    from private initiative. That we can build systems so brutal
-                    that they force institutions to change.</span></p>
-
-                    <p><span class="hidden-es">Cada decisión que tomo ahora está diseñada para eso.</span><span class="hidden-en">Every decision I make now is designed for that.</span></p>
-                </div>
+            <div class="about-conclusion">
+                <p><span class="hidden-es">No estoy aquí para motivarte. Estoy aquí para construir carácter operacional en tus sistemas. Para convertir decisiones vagas en arquitectura implacable.</span><span class="hidden-en">I'm not here to motivate you. I'm here to build operational character in your systems. To turn vague decisions into relentless architecture.</span></p>
+                <p><span class="hidden-es">Cada decisión que tomo ahora está diseñada para demostrar que México puede transformarse desde la iniciativa privada.</span><span class="hidden-en">Every decision I make now is designed to prove Mexico can transform from private enterprise.</span></p>
             </div>
         </section>
 
@@ -991,13 +1025,9 @@
             btn.addEventListener('click', function() {
                 const lang = this.getAttribute('data-lang');
                 
-                // Remove active class from all buttons
                 langBtns.forEach(b => b.classList.remove('active'));
-                
-                // Add active class to clicked button
                 this.classList.add('active');
                 
-                // Change language
                 if (lang === 'en') {
                     document.body.classList.remove('lang-es');
                     document.body.classList.add('lang-en');
@@ -1016,10 +1046,8 @@
             const email = document.getElementById('email').value;
             const country = document.getElementById('country').value;
             
-            // Store data (you can send to a service here)
             console.log('Notification received:', { name, email, country });
             
-            // Show success message
             const form = this;
             const submitBtn = form.querySelector('.form-submit');
             const originalText = submitBtn.innerHTML;
@@ -1027,7 +1055,6 @@
             submitBtn.innerHTML = '<span class="hidden-es">¡Gracias! Te notificaremos</span><span class="hidden-en">Thanks! We\'ll notify you</span>';
             submitBtn.disabled = true;
             
-            // Reset after 3 seconds
             setTimeout(() => {
                 form.reset();
                 submitBtn.innerHTML = originalText;
