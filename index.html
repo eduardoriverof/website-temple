@@ -21,6 +21,7 @@
             --text-secondary: #a8afc1;
             --accent-gold: #d4af37;
             --accent-green: #00d98e;
+            --accent-red: #ff4444;
             --border-color: #1a1f3a;
         }
 
@@ -270,6 +271,113 @@
             margin-top: 0.5rem;
         }
 
+        /* Background Section */
+        .background-section {
+            padding: 6rem 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .background-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+        }
+
+        .background-items {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .background-item {
+            padding-left: 2rem;
+            border-left: 2px solid var(--accent-gold);
+        }
+
+        .background-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .background-item p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Transformation Section */
+        .transformation-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+            text-align: center;
+        }
+
+        .transformation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .transformation-column h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .transformation-column.before h4 {
+            color: var(--accent-red);
+        }
+
+        .transformation-column.before h4::before {
+            content: '❌';
+            font-size: 1.5rem;
+        }
+
+        .transformation-column.after h4 {
+            color: var(--accent-green);
+        }
+
+        .transformation-column.after h4::before {
+            content: '✅';
+            font-size: 1.5rem;
+        }
+
+        .transformation-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .transformation-item {
+            padding: 1.5rem;
+            border-radius: 6px;
+            background-color: var(--bg-secondary);
+            border-left: 3px solid;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .transformation-column.before .transformation-item {
+            border-left-color: var(--accent-red);
+            color: var(--text-secondary);
+        }
+
+        .transformation-column.after .transformation-item {
+            border-left-color: var(--accent-green);
+            color: var(--text-secondary);
+        }
+
         /* Footer */
         footer {
             border-top: 1px solid var(--border-color);
@@ -310,6 +418,16 @@
 
             .nav-links {
                 gap: 1.5rem;
+            }
+
+            .background-items {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .transformation-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
         }
 
@@ -355,6 +473,14 @@
 
             .image-frame {
                 max-width: 300px;
+            }
+
+            .background-title {
+                font-size: 2rem;
+            }
+
+            .transformation-title {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -407,6 +533,54 @@
                     <div class="badge">
                         <div class="badge-number">100+</div>
                         <div class="badge-text">Casos Analizados</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Background Section -->
+        <section class="background-section">
+            <h2 class="background-title">Mi Background</h2>
+            
+            <div class="background-items">
+                <div class="background-item">
+                    <h3>Ex Oficial de Caballería, Ejército Mexicano</h3>
+                    <p>Liderazgo en condiciones de presión extrema</p>
+                </div>
+                <div class="background-item">
+                    <h3>Pan American Games 2023</h3>
+                    <p>Ejecución bajo estrés máximo</p>
+                </div>
+                <div class="background-item">
+                    <h3>100+ Casos Analizados</h3>
+                    <p>Pattern recognition en crisis reales</p>
+                </div>
+                <div class="background-item">
+                    <h3>Metodología Impacto</h3>
+                    <p>Sistemas operacionales que escalan</p>
+                </div>
+            </div>
+
+            <!-- Transformation Section -->
+            <h3 class="transformation-title">Por eso, líderes que vienen a mí transforman:</h3>
+            
+            <div class="transformation-grid">
+                <div class="transformation-column before">
+                    <h4>ANTES</h4>
+                    <div class="transformation-items">
+                        <div class="transformation-item">Equipos que se fragmentan en crisis</div>
+                        <div class="transformation-item">Decisiones lentas e indecisas</div>
+                        <div class="transformation-item">Cultura que no escala</div>
+                        <div class="transformation-item">Liderazgo basado en carisma (frágil)</div>
+                    </div>
+                </div>
+                <div class="transformation-column after">
+                    <h4>DESPUÉS</h4>
+                    <div class="transformation-items">
+                        <div class="transformation-item">Sistemas que resisten presión extrema</div>
+                        <div class="transformation-item">Decisión rápida con 100% convicción</div>
+                        <div class="transformation-item">Cultura replicable y duradero</div>
+                        <div class="transformation-item">Liderazgo operacional (comprobado)</div>
                     </div>
                 </div>
             </div>
